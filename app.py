@@ -34,6 +34,10 @@ def addrec():
 		return render_template("result.html",msg = msg)
 		con.close()
 
+@app.route('/archive')
+def archive():
+   return render_template('archive.html')
+
 @app.route("/")
 def index():
 	con = sqlite3.connect("database.db")
