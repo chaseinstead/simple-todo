@@ -34,9 +34,29 @@ def addrec():
 		return render_template("result.html",msg = msg)
 		con.close()
 
+
+@app.route("/done/<task>/")
+def mark_as_done(task):
+	task_to_update = task.replace("-", " ")
+
+	with sqlite3.connect("database.db") as con:
+		cur = con.cursor()
+		cur.execute("UPDATE todo SET status = 1 WHERE task = ?",(task_to_update,) )
+
+	con.commit()
+
+	return render_template("result_archived.html", msg=task_to_update)
+	con.close()
+
+
 @app.route('/archive')
 def archive():
-   return render_template('archive.html')
+	con = sqlite3.connect("database.db")
+	con.row_factory = sqlite3.Row
+	cur = con.cursor()
+	cur.execute("select * from todo")
+	rows = cur.fetchall();
+	return render_template('archive.html', rows=rows)
 
 @app.route("/")
 def index():

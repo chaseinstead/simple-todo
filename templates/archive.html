@@ -3,7 +3,7 @@
    <body>
       <table border = 1>
          <thead>
-            <td>History of done tasks</td>
+            <td>This is what you have done already:</td>
          </thead>
          
          {% for row in rows if row["status"] == 1 %}
@@ -14,5 +14,7 @@
       </table>
       
       </p>
-      <a href = "/">Back to To-Do</a><br>
+      <a href = "/clearhistory">Clear task history</a><br>
+      <a href = "/">Backtotodo</a>
+   </body>
 </html>

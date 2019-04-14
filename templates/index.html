@@ -7,14 +7,16 @@
             <td>click here if done</td>
          </thead>
          
-         {% for row in rows %}
+         {% for row in rows if row["status"] == 0 %}
             <tr>
                <td>{{row["task"]}}</td>
-               <td><a href = "/">done</a></td>
+               <td><a href = "/done/{{row["task"].replace(" ", "-")}}">done</a></td>
             </tr>
          {% endfor %}
       </table>
       
-      <a href = "/newtask">Add another task</a>
+      </p>
+      <a href = "/newtask">Add another task</a><br>
+      <a href = "/archive">Archive of tasks</a>
    </body>
 </html>
