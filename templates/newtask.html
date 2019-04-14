@@ -1,10 +1,19 @@
-<html>
-   <body>
-      <form action = "{{ url_for('addrec') }}" method = "POST">
+{% extends "base.html" %}
+{% block title %}Archive{% endblock %}
+{% block head %}
+  {{ super() }}
+  <style type="text/css">
+    .important { color: #336699; }
+  </style>
+{% endblock %}
+{% block content %}
+  <p class="important">
+  	<form action = "{{ url_for('addrec') }}" method = "POST">
          <h3>Enter a new task</h3>
          What do you need to do?<br>
          <input type = "text" name = "task" /></br>
          <input type = "submit" value = "submit" /><br>
       </form>
+{% endblock %}
    </body>
 </html>

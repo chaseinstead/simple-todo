@@ -69,6 +69,10 @@ def clear_history():
 	return render_template("archive.html")
 	con.close()
 
+@app.route("/about")
+def about():
+	return render_template("about.html")
+
 @app.route("/")
 def index():
 	con = sqlite3.connect("database.db")

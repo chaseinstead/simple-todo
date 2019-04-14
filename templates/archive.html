@@ -1,7 +1,14 @@
-<!doctype html>
-<html>
-   <body>
-      <table border = 1>
+{% extends "base.html" %}
+{% block title %}Archive{% endblock %}
+{% block head %}
+  {{ super() }}
+  <style type="text/css">
+    .important { color: #336699; }
+  </style>
+{% endblock %}
+{% block content %}
+  <p class="important">
+   <table border = 0>
          <thead>
             <td>This is what you have done already:</td>
          </thead>
@@ -16,5 +23,6 @@
       </p>
       <a href = "/clearhistory">Clear task history</a><br>
       <a href = "/">Backtotodo</a>
+{% endblock %}
    </body>
 </html>

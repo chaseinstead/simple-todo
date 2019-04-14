@@ -1,7 +1,15 @@
-<!doctype html>
-<html>
-   <body>
+{% extends "base.html" %}
+{% block title %}Archive{% endblock %}
+{% block head %}
+  {{ super() }}
+  <style type="text/css">
+    .important { color: #336699; }
+  </style>
+{% endblock %}
+{% block content %}
+  <p class="important">
       you added the following task : {{ msg }}
       <h2><a href = "\">go back to home page</a></h2>
+{% endblock %}
    </body>
 </html>
