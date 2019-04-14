@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+   <body>
+      <table border = 1>
+         <thead>
+            <td>Task</td>
+            <td>click here if done</td>
+         </thead>
+         
+         {% for row in rows %}
+            <tr>
+               <td>{{row["task"]}}</td>
+               <td><a href = "/">done</a></td>
+            </tr>
+         {% endfor %}
+      </table>
+      
+      <a href = "/newtask">Add another task</a>
+   </body>
+</html>
