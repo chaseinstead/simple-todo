@@ -58,6 +58,17 @@ def archive():
 	rows = cur.fetchall();
 	return render_template('archive.html', rows=rows)
 
+@app.route("/clearhistory")
+def clear_history():
+	with sqlite3.connect("database.db") as con:
+		cur = con.cursor()
+		cur.execute("DELETE FROM todo WHERE status = 1")
+
+	con.commit()
+
+	return render_template("archive.html")
+	con.close()
+
 @app.route("/")
 def index():
 	con = sqlite3.connect("database.db")
